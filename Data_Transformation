@@ -1,0 +1,13 @@
+DataFrameToXTS <- function(DataFrame){
+  
+  DateTimeClasses <- c('Date','POSIXlt','POSIXct')
+  
+  for (i in 1:length(DataFrame)) {
+    if(class(DataFrame[,i]) %in% DateTimeClasses){
+      DateColumnNumber = i
+    }
+  }
+  
+  DataFrameConverted <- xts(DataFrame[,-DateColumnNumber], 
+                            order.by=DataFrame[,DateColumnNumber])
+}
