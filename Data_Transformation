@@ -1,3 +1,7 @@
+library(dplyr)
+library(xts)
+library(lubridate)
+
 DataFrameToXTS <- function(DataFrame){
   
   DateTimeClasses <- c('Date','POSIXlt','POSIXct')
@@ -65,11 +69,7 @@ ForecastToDataFrame <- function(FORECASTobject){
   DatePredictedSeriesWithoutLeapDays <- 
     DatePredictedSeries[!(lubridate::month(DatePredictedSeries) == 2 & 
                             lubridate::day(DatePredictedSeries)==29)]
-  
-  
-  DateFittedSeriesWithoutLeapDays  %>% tail()
-  DatePredictedSeriesWithoutLeapDays %>% length()
-  
+    
   BaseSeries <- cbind(Date = DateBeseSeriesWithoutLeapDays, 
                       as.data.frame(FORECASTobject$x))
   Fitted <- cbind(Date = DateFittedSeriesWithoutLeapDays, 
@@ -83,13 +83,13 @@ ForecastToDataFrame <- function(FORECASTobject){
   Date <- seq.Date(StartDateMain, EndDateMain, by = 'day')
   
   FORECASTobjectTransformedToDataFrame <-
-    as.data.frame(Date) %>% left_join(BaseSeries, by = 'Date') %>% 
+    as.data.frame(Date) %>% 
+    left_join(BaseSeries, by = 'Date') %>% 
     left_join(Fitted, by = 'Date') %>% 
     left_join(Predicted, by = 'Date')
   
   names(FORECASTobjectTransformedToDataFrame) <- c('Date','BaseSeries',
                                                    'Fitted','Predicted')
-  
   return(FORECASTobjectTransformedToDataFrame)
 }
 
