@@ -2,6 +2,8 @@ library(dplyr)
 library(xts)
 library(lubridate)
 
+## check what happen when data start or end on 29-02
+
 DataFrameToXTS <- function(DataFrame){
   
   DateTimeClasses <- c('Date','POSIXlt','POSIXct')
