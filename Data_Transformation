@@ -7,6 +7,10 @@ library(lubridate)
 
 DataFrameToXTS <- function(DataFrame){
   
+  if('tbl' %in% class(DataFrame) | 'tbl_df' %in% class(DataFrame)){
+    DataFrame <- as.data.frame(DataFrame)
+  }
+  
   DateTimeClasses <- c('Date','POSIXlt','POSIXct')
   
   for (i in 1:length(DataFrame)) {
