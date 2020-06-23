@@ -1,3 +1,11 @@
+  # If is not installed -> Install
+    if (!require("dplyr"))     install.packages("dplyr", dep = TRUE)
+    if (!require("ggplot2"))       install.packages("ggplot2", dep = TRUE)
+  # Load Package if no loaded
+    require(dplyr)
+    require(ggplot2)
+
+
 PlotFittedPredictedAndForecastData <- function(DataTrained,
                                                DataTested = NULL,
                                                DataForecast = NULL,
