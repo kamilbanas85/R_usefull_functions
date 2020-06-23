@@ -1,13 +1,11 @@
-# Install Require Packages
-  if (!require("devtools")) install.packages("devtools")
-
-  InstallPackagesGIT <- 'https://raw.githubusercontent.com/kamilbanas85/R_usefull_functions/master/Install_And_Load_Packages.R'
-  devtools::source_url(InstallPackagesGIT)
-
-  PackagesList <- c('dplyr', 'xts', 'lubridate')
-  InstallAndLoadRequirePackages(PackagesList)
-# install.packages('TSstudio')
-  rm(PackagesList, InstallPackagesGIT)
+  # If is not installed -> Install
+    if (!require("dplyr"))     install.packages("dplyr")
+    if (!require("xts"))       install.packages("xts")
+    if (!require("lubridate")) install.packages("lubridate")
+  # Load Package if no loaded
+    require(dplyr)
+    require(xts)
+    require(lubridate)
 
 ## check what happen when data start or end on 29-02
 
