@@ -1,3 +1,17 @@
+# Install Require Packages
+  if (!require("dplyr")) install.packages("dplyr")
+
+  InstallPackagesGIT <- 'https://raw.githubusercontent.com/kamilbanas85/R_usefull_functions/master/Install_And_Load_Packages.R'
+  devtools::source_url(InstallPackagesGIT)
+
+  PackagesList <- c('dplyr')
+  InstallAndLoadRequirePackages(PackagesList)
+# install.packages('TSstudio')
+  rm(PackagesList, InstallPackagesGIT)
+
+
+
+
 RemoveTopAndBottomRowsWithNA <- function(DataFrame, columnName){
   
   columnName <- deparse(substitute(columnName))
