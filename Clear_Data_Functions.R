@@ -1,5 +1,4 @@
-RemoveFewTopAndBottomRowsWhichContainsNA <- function(DataFrame, 
-                                         columnName){
+RemoveTopAndBottomRowsWithNA <- function(DataFrame, columnName){
   
   columnName <- deparse(substitute(columnName))
 
@@ -15,29 +14,24 @@ RemoveFewTopAndBottomRowsWhichContainsNA <- function(DataFrame,
     } else{break}
   }  
   
-  return(DataFrame)
-  
+  return(DataFrame)  
 }
 
+####################################################################
 
-# Functions to replace NA:
-#
-#   fill() - replace NA with previous or next value
-#   replace_na() - 
-#   DataFrame$ColName[is.na(DataFrame$ColName)] <- 0
-#
-#
-#   na.omit() - remove row with NA based on all data or specific column
-#   DataFrame %>% drop_na(ColumnName) - remove rows with NA in sepecific column
-#
-#
-#   library(xts)
-#
-#   na.locf() - fill missing NA observations with a last or next known value
-#   na.aprox() - fill with linear interpolation
+RemoveTopRows <- function(DataFrame, numberOfRows){
+  
+  DataFrame <- DataFrame %>% .[-(1:numberOfRows), ]
+  
+  return(DataFrame)
+}
 
-#
-#   cHECK duplicates in dates column
-# 
+####################################################################
 
-
+RemoveBottomRows <- function(DataFrame, numberOfRows){
+  
+  DataFrame <- DataFrame %>% 
+    .[-( (nrow(.)-numberOfRows+1):nrow(.) ), ]
+  
+  return(DataFrame)
+}
