@@ -14,5 +14,10 @@ InstallAndLoadRequirePackages <- function(PackageListRequire){
     invisible(lapply(PackageListRequire, LoadAndInstallRequirePackage))
 }
 
+# Example:  
+#   ListOfPackage <- listOfPackages <- c('dplyr','lubridate')
+#   InstallAndLoadRequirePackages(ListOfPackage)
+
+
 
 ######### INSTALL ONLY PACKAGES IF THERE ARE NOT INSTALLED
