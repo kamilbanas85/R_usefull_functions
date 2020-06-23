@@ -2,7 +2,6 @@
 InstallAndLoadRequirePackage <- function(PackageRequire){
     
     if(!require(PackageRequire, character.only = TRUE)){
-    
       install.packages(PackageRequire, dep = TRUE) ;
     }
     
@@ -11,6 +10,9 @@ InstallAndLoadRequirePackage <- function(PackageRequire){
 
 # Main Function:
 InstallAndLoadRequirePackages <- function(PackageListRequire){
-  
-  invisible(lapply(PackageListRequire, LoadAndInstallRequirePackage))
+    
+    invisible(lapply(PackageListRequire, LoadAndInstallRequirePackage))
 }
+
+
+######### INSTALL ONLY PACKAGES IF THERE ARE NOT INSTALLED
