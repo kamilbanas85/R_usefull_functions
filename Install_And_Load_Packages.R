@@ -11,7 +11,7 @@ InstallAndLoadRequirePackage <- function(PackageRequire){
 # Main Function:
 InstallAndLoadRequirePackages <- function(PackageListRequire){
     
-    invisible(lapply(PackageListRequire, LoadAndInstallRequirePackage))
+    invisible(lapply(PackageListRequire, InstallAndLoadRequirePackage))
 }
 
 # Example:  
