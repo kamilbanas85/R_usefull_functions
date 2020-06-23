@@ -1,11 +1,13 @@
   # If is not installed -> Install
-    if (!require("dplyr"))     install.packages("dplyr")
-    if (!require("xts"))       install.packages("xts")
-    if (!require("lubridate")) install.packages("lubridate")
+    if (!require("dplyr"))     install.packages("dplyr", dep = TRUE)
+    if (!require("xts"))       install.packages("xts", dep = TRUE)
+    if (!require("lubridate")) install.packages("lubridate", dep = TRUE)
+    if (!require("TSstudio"))  install.packages("TSstudio", dep = TRUE) 
   # Load Package if no loaded
     require(dplyr)
     require(xts)
     require(lubridate)
+
 
 ## check what happen when data start or end on 29-02
 
