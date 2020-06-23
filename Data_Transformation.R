@@ -1,13 +1,13 @@
-if (!require("devtools")) install.packages("devtools")
+# Install Require Packages
+  if (!require("devtools")) install.packages("devtools")
 
-InstallPackagesGIT <- 'https://raw.githubusercontent.com/kamilbanas85/R_usefull_functions/master/Install_And_Load_Packages.R'
-devtools::source_url(InstallPackagesGIT)
+  InstallPackagesGIT <- 'https://raw.githubusercontent.com/kamilbanas85/R_usefull_functions/master/Install_And_Load_Packages.R'
+  devtools::source_url(InstallPackagesGIT)
 
-PackagesList <- c('dplyr', 'xts', 'lubridate')
-InstallAndLoadRequirePackages(PackagesList)
+  PackagesList <- c('dplyr', 'xts', 'lubridate')
+  InstallAndLoadRequirePackages(PackagesList)
 # install.packages('TSstudio')
-
-rm(PackagesList, InstallPackagesGIT)
+  rm(PackagesList, InstallPackagesGIT)
 
 ## check what happen when data start or end on 29-02
 
