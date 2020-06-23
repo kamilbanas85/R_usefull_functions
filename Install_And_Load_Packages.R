@@ -1,10 +1,12 @@
 # Auxiliary Function:
 InstallAndLoadRequirePackage <- function(PackageRequire){
     
+    # If is not installed -> Install
     if(!require(PackageRequire, character.only = TRUE)){
       install.packages(PackageRequire, dep = TRUE) ;
     }
     
+    # Load Package
     require(PackageRequire, character.only = TRUE)
 }
 
