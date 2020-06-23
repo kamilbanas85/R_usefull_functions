@@ -1,3 +1,4 @@
+# Auxiliary Function:
 InstallAndLoadRequirePackage <- function(PackageRequire){
     
     if(!require(PackageRequire, character.only = TRUE)){
@@ -8,7 +9,7 @@ InstallAndLoadRequirePackage <- function(PackageRequire){
     require(PackageRequire, character.only = TRUE)
 }
 
-
+# Main Function:
 InstallAndLoadRequirePackages <- function(PackageListRequire){
   
   invisible(lapply(PackageListRequire, LoadAndInstallRequirePackage))
