@@ -1,6 +1,5 @@
 ---
 title: "Time Series Data  Preparation"
-output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -10,8 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 <font size="5">**Install Require Packages And Functions:**</font> 
 
 <ul>
-```{r  echo=T, results='hide', error=FALSE, warning=FALSE, message=FALSE}
-
+```r
 if(!"devtools" %in% installed.packages()) install.packages("devtools")
 
 InstallPackagesGIT <-
@@ -30,6 +28,7 @@ InstallAndLoadRequirePackages(listOfPackages)
 
 rm(InstallPackagesGIT, ClearDataGIT, DataTranformationGIT, listOfPackages)
 ```
+
 </ul>
 
 
