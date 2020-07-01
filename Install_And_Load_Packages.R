@@ -1,5 +1,5 @@
 # Auxiliary Function:
-InstallAndLoadRequirePackage <- function(PackageRequire){
+InstallAndLoadRequirePackageAuxiliaryFun <- function(PackageRequire){
     
     # If is not installed -> Install
     if(!require(PackageRequire, character.only = TRUE)){
@@ -11,9 +11,9 @@ InstallAndLoadRequirePackage <- function(PackageRequire){
 }
 
 # Main Function:
-InstallAndLoadRequirePackages <- function(PackageListRequire){
+InstallAndLoadRequirePackages <- function(PackageRequireList){
     
-    invisible(lapply(PackageListRequire, InstallAndLoadRequirePackage))
+    invisible(lapply(PackageRequireList, InstallAndLoadRequirePackageAuxiliaryFun))
 }
 
 # Example:  
@@ -23,3 +23,16 @@ InstallAndLoadRequirePackages <- function(PackageListRequire){
 
 
 ######### INSTALL ONLY PACKAGES IF THERE ARE NOT INSTALLED
+
+InstallPackageAuxiliaryFun <- function(PackageToInstall){
+  
+  if(!PackageToInstall %in% installed.packages()){
+          install.packages(PackageToInstall)
+  } 
+} 
+
+
+InstallPackages <- function(PackageToInstallList){
+  
+  invisible(lapply(PackageToInstallList, InstallPackageAuxiliaryFun))
+} 
