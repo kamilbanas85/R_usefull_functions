@@ -41,20 +41,20 @@
      ```
  * ## Complite missing dates:
       ### Check dupicates on 'Date' column:
-      * Extract duplicated elements:
+      Extract duplicated elements:
       ```r
       DataFrameEx %>% .[duplicated(.), 'Date']
       ```
  * ## Remove dupicated dates:
       * Remove duplicates based on 'Date' column:
-      ```r
-      DataFrameEx <- DataFrameEx %>% 
+        ```r
+        DataFrameEx <- DataFrameEx %>% 
                       .[!duplicated(.$Date), ]
-      ```
+        ```
       * or using a function from 'dplyr':
-      ```r
-      DataFrameEx %>% distinct(Date, .keep_all = TRUE)
-      ```
+        ```r
+        DataFrameEx %>% distinct(Date, .keep_all = TRUE)
+        ```
     
  **Complate 'Date' column - replace 'NA', 'None' etc.:**
  Check missing data in 'Date' column to knwolage:
