@@ -39,55 +39,35 @@
      DataFrameEx <- DataFrameEx %>% 
                     RemoveTopAndBottomRowsWithNA(columnName = Date)
      ```
-    
-- complite missing dates
-- remove dupicated dates
-
-
-
-  
- 
-## Check dupicates on 'Date' column:
-
-### Extract duplicated elements:
-
-```r
-  DataFrameEx %>% .[duplicated(.), 'Date']
-```
-
-### Remove duplicates based on 'Date' column:
-   
-```r
-DataFrameEx <- DataFrameEx %>% 
+ * ## Complite missing dates:
+      ### Check dupicates on 'Date' column:
+      * Extract duplicated elements:
+      ```r
+      DataFrameEx %>% .[duplicated(.), 'Date']
+      ```
+ * ## Remove dupicated dates:
+      * Remove duplicates based on 'Date' column:
+      ```r
+      DataFrameEx <- DataFrameEx %>% 
                       .[!duplicated(.$Date), ]
-```
-  
-### or using a function from 'dplyr':
-  
-```r
-DataFrameEx %>% distinct(Date, .keep_all = TRUE)
-```
+      ```
+      * or using a function from 'dplyr':
+      ```r
+      DataFrameEx %>% distinct(Date, .keep_all = TRUE)
+      ```
     
  **Complate 'Date' column - replace 'NA', 'None' etc.:**
- <ul>
  Check missing data in 'Date' column to knwolage:
-  <ul>
   ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
   is.na(DataFrameEx$Date) %>% table()  
   ```
-  </ul>
  Fill 'Date' column with sequence of dates:
-  <ul>
   ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
   DataFrameEx <- DataFrameEx %>% 
                     tidyr::complete(Date = seq.Date(min(Date, na.rm = TRUE),
                                       max(Date, na.rm = TRUE), by = 'day'))
   ``` 
-  </ul>
-  
- </ul>
- 
-</ul>
+
 
 
 <font size="5">**Repair rest of a data**</font>
