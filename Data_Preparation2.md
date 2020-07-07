@@ -1,6 +1,5 @@
 # Install Require Packages And Functions:
 
-<ul>
 ```r
 if(!"devtools" %in% installed.packages()) install.packages("devtools")
 
@@ -21,40 +20,12 @@ InstallAndLoadRequirePackages(listOfPackages)
 rm(InstallPackagesGIT, ClearDataGIT, DataTranformationGIT, listOfPackages)
 ```
 
-</ul>
 
 
-```{r, include=FALSE}
-listOfPackages2 <- c('EIAdata')
-InstallAndLoadRequirePackages(listOfPackages2)
-rm(listOfPackages2)
-```
-
-```{r, include=FALSE}
-# Download Data
-
-MyEIAapiKey <- 'afff06a7487250d16b281fc6a6e50b94'
-series_id='NUC_STATUS.OUT.US.D'
-#https://www.eia.gov/opendata/qb.php?category=2889994&sdid=NUC_STATUS.OUT.US.D
-
-US_Nuclear_Outages_XTS_imported <- getEIA(series_id, MyEIAapiKey)
-plot(US_Nuclear_Outages_XTS_imported)
-
-US_Nuclear_Outages_DF <- US_Nuclear_Outages_XTS_imported %>% 
-data.frame(Date =index(.)) %>% 
-  tibble::remove_rownames() %>% 
-  select('Date', everything()) 
-
-names(US_Nuclear_Outages_DF) <- c('Date', 'ColumnName')
-
-DataFrameEx <- US_Nuclear_Outages_DF
-```
-
-<font size="5">**Check data in general:**</font>
-  <ul>
-   ```{r,  error=FALSE, warning=FALSE, message=FALSE}
+#Check data in general:
+```r
     DataFrameEx %>% glimpse()
-    ```
+```
   
 **Plot data:**
 
