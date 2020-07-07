@@ -28,18 +28,17 @@
    ```
 
 # Repair 'Date' column:
- * ## remove NA from the top and bottom data:
-  * Check top and bottom values:
-    ```r
-    DataFrameEx %>% head()
-    DataFrameEx %>% tail()
-    ```
-    If missing some top and bottom Dates -> remove it (function from  'Clear_Data_Functions.R' on GitGub):
-  
-    ```r
-    DataFrameEx <- DataFrameEx %>% 
-    RemoveTopAndBottomRowsWithNA(columnName = Date)
-    ```
+ * ## Remove NA from the top and bottom data:
+   * Check top and bottom values:
+     ```r
+     DataFrameEx %>% head()
+     DataFrameEx %>% tail()
+     ```
+     If missing some top and bottom Dates -> remove it (function from  'Clear_Data_Functions.R' on GitGub):
+     ```r
+     DataFrameEx <- DataFrameEx %>% 
+     RemoveTopAndBottomRowsWithNA(columnName = Date)
+     ```
     
 - complite missing dates
 - remove dupicated dates
