@@ -19,18 +19,17 @@
 
 
 
-* # Check data in general:
+# Check data in general:
 
 ```r
 DataFrameEx %>% glimpse()
 ```
 
-* kkk
-  * Plot data:
 
-```r 
+ * Plot data:
+   ```r 
     DataFrameEx %>% ggplot() + geom_line(aes(Date, ColumnName))
-```
+   ```
 
 
 # Repair 'Date' column:
