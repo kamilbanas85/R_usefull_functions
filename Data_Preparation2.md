@@ -98,8 +98,7 @@
               DataFrameToXTS() %>% 
               na.approx()
         ```
-      * ## remove NA from the top and bottom data
- 
+        
  * ## Functions to remove NA:**
       * na.omit() - remove row with NA based on all data or specific column. Example:
         ```r
