@@ -69,86 +69,61 @@
       ``` 
 
 # Repair rest of a data:
-
-- remove NA from the top and bottom data
-- fill missing datas
+ * ## remove NA from the top and bottom data
+ 
+ * ## fill missing datas
 
  **Functions to replace NA:**
  <ul>
   
   **fill()** - replace NA with previous or next value. Example:
   
-  <ul>
-  ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
+  ```r
   DataFrameEx <- DataFrameEx %>% 
                       fill(ColumnName)
   ```
-  </ul>
   
   **replace_na()** - replace NA with specified value. Example, replace with '0'
   
-  <ul>
-  ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
+  ```r
   DataFrameEx <- DataFrameEx %>% 
                       mutate(ColumnName = replace_na(ColumnName, 0))
   ```
-  </ul>
   
   **Direct replacemnt**
   
-  <ul>
-  ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
+  ```r
   DataFrameEx$ColumnName[is.na(DataFrameEx$ColumnName)] <- 0
   ```
-  </ul>
   
   **xts::na.locf()** - fill NA with a last or next known value. Example, ( DataFrameToXTS from 'Data_Transformation' functions):
-  <ul>
 
-  ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
+  ```r
   DataFrameEx %>% 
         DataFrameToXTS() %>% 
         na.locf()
   ```
-  </ul>
 **xts::na.approx()** - fill NA with linear interpolation. Example, ( DataFrameToXTS from 'Data_Transformation' functions):
-  <ul>
 
   ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
   DataFrameEx %>% 
         DataFrameToXTS() %>% 
         na.approx()
   ```
-  </ul>  
-  
- </ul>
-
-
+ 
  **Functions to remove NA:**
- <ul>
   
   **na.omit()** - remove row with NA based on all data or specific column. Example:
-  
-  <ul>
+
   ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
   DataFrameEx <- DataFrameEx %>% 
                       na.omit()
   ```
-  </ul>
   
   **drop_na()** - remove rows with NA in sepecific column. Example:
   
-  <ul>
   ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
   
   DataFrameEx <- DataFrameEx %>% 
                       drop_na(ColumnName)
   ```
-  </ul>
-  
- </ul>
-
-
-</ul>
-
-
