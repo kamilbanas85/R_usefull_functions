@@ -34,7 +34,7 @@
      DataFrameEx %>% head()
      DataFrameEx %>% tail()
      ```
-     If missing some top and bottom Dates -> remove it (function from  'Clear_Data_Functions.R' on GitGub):
+     If missing some top and bottom dates -> remove it (function from  'Clear_Data_Functions.R' on GitHub):
      ```r
      DataFrameEx <- DataFrameEx %>% 
                     RemoveTopAndBottomRowsWithNA(columnName = Date)
