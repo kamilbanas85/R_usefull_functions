@@ -28,7 +28,7 @@
    ```
 
 # Repair 'Date' column:
- * ## Remove NA from the top and bottom data:
+ * ## Remove NA from the top and bottom 'Date' column:
      Check top and bottom values:
      ```r
      DataFrameEx %>% head()
@@ -71,7 +71,7 @@
 # Repair rest of a data:
 
  * ## Fill missing datas:
-      __Functions to replace NA:__
+      Functions to replace NA:
       * __fill()__ - replace NA with previous or next value. Example:
         ```r
         DataFrameEx <- DataFrameEx %>% 
@@ -100,7 +100,7 @@
         ```
         
  * ## Remove missing datas. 
-      __Functions to remove NA:__
+      Functions to remove NA:
       * __na.omit()__ - remove row with NA based on all data or specific column. Example:
         ```r
         DataFrameEx <- DataFrameEx %>% 
