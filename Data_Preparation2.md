@@ -3,12 +3,9 @@
 ```r
 if(!"devtools" %in% installed.packages()) install.packages("devtools")
 
-InstallPackagesGIT <-
-'https://raw.githubusercontent.com/kamilbanas85/R_usefull_functions/master/Install_And_Load_Packages.R'
-ClearDataGIT <-   
-'https://raw.githubusercontent.com/kamilbanas85/R_usefull_functions/master/Clear_Data_Functions.R'
-DataTranformationGIT <-
-'https://raw.githubusercontent.com/kamilbanas85/R_usefull_functions/master/Data_Transformation.R'
+InstallPackagesGIT <- 'https://raw.githubusercontent.com/kamilbanas85/R_usefull_functions/master/Install_And_Load_Packages.R'
+ClearDataGIT <- 'https://raw.githubusercontent.com/kamilbanas85/R_usefull_functions/master/Clear_Data_Functions.R'
+DataTranformationGIT <- 'https://raw.githubusercontent.com/kamilbanas85/R_usefull_functions/master/Data_Transformation.R'
 
 devtools::source_url(InstallPackagesGIT)
 devtools::source_url(ClearDataGIT)
@@ -22,7 +19,8 @@ rm(InstallPackagesGIT, ClearDataGIT, DataTranformationGIT, listOfPackages)
 
 
 
-#Check data in general:
+# Check data in general:
+
 ```r
     DataFrameEx %>% glimpse()
 ```
