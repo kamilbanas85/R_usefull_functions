@@ -71,7 +71,7 @@
 # Repair rest of a data:
 
  * ## Fill missing datas:
-      ### Functions to replace NA:
+      __Functions to replace NA:__
       * __fill()__ - replace NA with previous or next value. Example:
         ```r
         DataFrameEx <- DataFrameEx %>% 
@@ -100,7 +100,7 @@
         ```
         
  * ## Remove missing datas. 
-      Functions to remove NA:
+      __Functions to remove NA:__
       * __na.omit()__ - remove row with NA based on all data or specific column. Example:
         ```r
         DataFrameEx <- DataFrameEx %>% 
