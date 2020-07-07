@@ -71,28 +71,28 @@
 # Repair rest of a data:
 
  * ## Fill missing datas:
-      Functions to replace NA:
-      * fill() - replace NA with previous or next value. Example:
+      ### Functions to replace NA:
+      * __fill()__ - replace NA with previous or next value. Example:
         ```r
         DataFrameEx <- DataFrameEx %>% 
                       fill(ColumnName)
         ```
-      * `replace_na()` - replace NA with specified value. Example, replace with '0':
+      * __replace_na()__ - replace NA with specified value. Example, replace with '0':
         ```r
         DataFrameEx <- DataFrameEx %>% 
                       mutate(ColumnName = replace_na(ColumnName, 0))
         ```
-      * Direct replacemnt:
+      * __Direct replacemnt__:
         ```r
         DataFrameEx$ColumnName[is.na(DataFrameEx$ColumnName)] <- 0
         ```
-      * xts::na.locf() - fill NA with a last or next known value. Example, ( DataFrameToXTS from 'Data_Transformation' functions):
+      * __xts::na.locf()__ - fill NA with a last or next known value. Example, ( DataFrameToXTS from 'Data_Transformation' functions):
         ```r
         DataFrameEx %>% 
               DataFrameToXTS() %>% 
               na.locf()
         ```
-      * xts::na.approx() - fill NA with linear interpolation. Example, ( DataFrameToXTS from 'Data_Transformation' functions):
+      * __xts::na.approx()__ - fill NA with linear interpolation. Example, ( DataFrameToXTS from 'Data_Transformation' functions):
         ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
         DataFrameEx %>% 
               DataFrameToXTS() %>% 
@@ -100,13 +100,13 @@
         ```
         
  * ## Functions to remove NA:**
-      * na.omit() - remove row with NA based on all data or specific column. Example:
+      * __na.omit()__ - remove row with NA based on all data or specific column. Example:
         ```r
         DataFrameEx <- DataFrameEx %>% 
                             na.omit()
         ```
   
-      * drop_na() - remove rows with NA in sepecific column. Example:
+      * __drop_na()__ - remove rows with NA in sepecific column. Example:
         ```r
         DataFrameEx <- DataFrameEx %>% 
                             drop_na(ColumnName)
