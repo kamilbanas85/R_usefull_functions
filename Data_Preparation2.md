@@ -69,47 +69,38 @@
       ``` 
 
 # Repair rest of a data:
- * ## remove NA from the top and bottom data
- 
+
  * ## fill missing datas
-
- **Functions to replace NA:**
- <ul>
-  
-  **fill()** - replace NA with previous or next value. Example:
-  
-  ```r
-  DataFrameEx <- DataFrameEx %>% 
+      Functions to replace NA:
+      * fill() - replace NA with previous or next value. Example:
+        ```r
+        DataFrameEx <- DataFrameEx %>% 
                       fill(ColumnName)
-  ```
-  
-  **replace_na()** - replace NA with specified value. Example, replace with '0'
-  
-  ```r
-  DataFrameEx <- DataFrameEx %>% 
+        ```
+      * replace_na() - replace NA with specified value. Example, replace with '0':
+        ```r
+        DataFrameEx <- DataFrameEx %>% 
                       mutate(ColumnName = replace_na(ColumnName, 0))
-  ```
-  
-  **Direct replacemnt**
-  
-  ```r
-  DataFrameEx$ColumnName[is.na(DataFrameEx$ColumnName)] <- 0
-  ```
-  
-  **xts::na.locf()** - fill NA with a last or next known value. Example, ( DataFrameToXTS from 'Data_Transformation' functions):
+        ```
+      * Direct replacemnt:
+        ```r
+        DataFrameEx$ColumnName[is.na(DataFrameEx$ColumnName)] <- 0
+        ```
+      * xts::na.locf() - fill NA with a last or next known value. Example, ( DataFrameToXTS from 'Data_Transformation' functions):
+        ```r
+        DataFrameEx %>% 
+              DataFrameToXTS() %>% 
+              na.locf()
+        ```
+      * xts::na.approx() - fill NA with linear interpolation. Example, ( DataFrameToXTS from 'Data_Transformation' functions):
+        ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
+        DataFrameEx %>% 
+              DataFrameToXTS() %>% 
+              na.approx()
+        ```
+      * ## remove NA from the top and bottom data
+ 
 
-  ```r
-  DataFrameEx %>% 
-        DataFrameToXTS() %>% 
-        na.locf()
-  ```
-**xts::na.approx()** - fill NA with linear interpolation. Example, ( DataFrameToXTS from 'Data_Transformation' functions):
-
-  ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
-  DataFrameEx %>% 
-        DataFrameToXTS() %>% 
-        na.approx()
-  ```
  
  **Functions to remove NA:**
   
