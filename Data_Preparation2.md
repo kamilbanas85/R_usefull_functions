@@ -77,7 +77,7 @@
         DataFrameEx <- DataFrameEx %>% 
                       fill(ColumnName)
         ```
-      * replace_na() - replace NA with specified value. Example, replace with '0':
+      * `replace_na()` - replace NA with specified value. Example, replace with '0':
         ```r
         DataFrameEx <- DataFrameEx %>% 
                       mutate(ColumnName = replace_na(ColumnName, 0))
