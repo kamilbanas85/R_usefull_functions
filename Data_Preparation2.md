@@ -37,7 +37,7 @@
      If missing some top and bottom dates -> remove it (function from  'Clear_Data_Functions.R' on GitHub):
      ```r
      DataFrameEx <- DataFrameEx %>% 
-                    RemoveTopAndBottomRowsWithNA(columnName = Date)
+                          RemoveTopAndBottomRowsWithNA(columnName = Date)
      ```
  * ## Remove dupicated dates:
       Check dupicates on 'Date' column:
@@ -49,7 +49,7 @@
       * Remove duplicates based on 'Date' column:
         ```r
         DataFrameEx <- DataFrameEx %>% 
-                      .[!duplicated(.$Date), ]
+                              .[!duplicated(.$Date), ]
         ```
       * or using a function from 'dplyr':
         ```r
@@ -64,8 +64,8 @@
       Fill 'Date' column with sequence of dates:
       ```r
       DataFrameEx <- DataFrameEx %>% 
-                      tidyr::complete(Date = seq.Date(min(Date, na.rm = TRUE),
-                                              max(Date, na.rm = TRUE), by = 'day'))
+                           tidyr::complete(Date = seq.Date(min(Date, na.rm = TRUE),
+                                                           max(Date, na.rm = TRUE), by = 'day'))
       ``` 
 
 # Repair rest of a data:
@@ -75,12 +75,12 @@
       * __fill()__ - replace NA with previous or next value. Example:
         ```r
         DataFrameEx <- DataFrameEx %>% 
-                      fill(ColumnName)
+                            fill(ColumnName)
         ```
       * __replace_na()__ - replace NA with specified value. Example, replace with '0':
         ```r
         DataFrameEx <- DataFrameEx %>% 
-                      mutate(ColumnName = replace_na(ColumnName, 0))
+                            mutate(ColumnName = replace_na(ColumnName, 0))
         ```
       * __Direct replacemnt__:
         ```r
@@ -99,7 +99,7 @@
               na.approx()
         ```
         
- * ## Remove missing datas. 
+ * ## Remove missing datas: 
       Functions to remove NA:
       * __na.omit()__ - remove row with NA based on all data or specific column. Example:
         ```r
