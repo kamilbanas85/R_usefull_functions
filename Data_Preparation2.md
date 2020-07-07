@@ -39,13 +39,13 @@
      DataFrameEx <- DataFrameEx %>% 
                     RemoveTopAndBottomRowsWithNA(columnName = Date)
      ```
- * ## Complite missing dates:
-      ### Check dupicates on 'Date' column:
+ * ## Remove dupicated dates:
+      Check dupicates on 'Date' column:
       Extract duplicated elements:
       ```r
       DataFrameEx %>% .[duplicated(.), 'Date']
       ```
- * ## Remove dupicated dates:
+      If any dupicated dates - remove:
       * Remove duplicates based on 'Date' column:
         ```r
         DataFrameEx <- DataFrameEx %>% 
@@ -55,7 +55,7 @@
         ```r
         DataFrameEx %>% distinct(Date, .keep_all = TRUE)
         ```
-    
+    :Complite missing dates:
  **Complite 'Date' column - replace 'NA', 'None' etc.:**
  Check missing data in 'Date' column to knwolage:
   ```r
