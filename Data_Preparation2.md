@@ -27,67 +27,54 @@ rm(InstallPackagesGIT, ClearDataGIT, DataTranformationGIT, listOfPackages)
   
 **Plot data:**
 
-   ```{r, error=FALSE, warning=FALSE, message=FALSE}
-    DataFrameEx %>% ggplot() + geom_line(aes(Date, ColumnName))
+```r
+    
+DataFrameEx %>% ggplot() + geom_line(aes(Date, ColumnName))
   
-    ```
-</ul>
+```
 
 
-<font size="5">**Repair 'Date' column:**</font>
-<ul>
+# Repair 'Date' column:
+
 - remove NA from the top and bottom data
 - complite missing dates
 - remove dupicated dates
 
 
- **Check top and bottom values:**
- <ul>
-  ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
+ ## Check top and bottom values:
 
-  DataFrameEx %>% head()
-  DataFrameEx %>% tail()
-  ```
+```r
+DataFrameEx %>% head()
+DataFrameEx %>% tail()
+```
   If missing some top and bottom Dates -> remove it (function from  'Clear_Data_Functions.R' on GitGub):
   
-  <ul>
-  ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
-  DataFrameEx <- DataFrameEx %>% 
-      RemoveTopAndBottomRowsWithNA(columnName = Date)
-  ```
-  </ul>
-
- </ul>
+```r
+DataFrameEx <- DataFrameEx %>% 
+    RemoveTopAndBottomRowsWithNA(columnName = Date)
+```
   
  
- **Check dupicates on 'Date' column:**
- <ul>
+## Check dupicates on 'Date' column:
 
-  Extract duplicated elements:
-  <ul>
+### Extract duplicated elements:
 
-  ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
+```r
   DataFrameEx %>% .[duplicated(.), 'Date']
-  ```
-  </ul>
-       
+```
 
-  Remove duplicates based on 'Date' column:
-  <ul>
-      
-  ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
-  DataFrameEx <- DataFrameEx %>% 
+### Remove duplicates based on 'Date' column:
+   
+```r
+DataFrameEx <- DataFrameEx %>% 
                       .[!duplicated(.$Date), ]
-  ```
+```
   
-  or using a function from 'dplyr':
+### or using a function from 'dplyr':
   
-  ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
-  DataFrameEx %>% distinct(Date, .keep_all = TRUE)
-  ```
-  </ul>
- </ul>
-    
+```r
+DataFrameEx %>% distinct(Date, .keep_all = TRUE)
+```
     
  **Complate 'Date' column - replace 'NA', 'None' etc.:**
  <ul>
