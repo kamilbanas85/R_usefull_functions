@@ -1,4 +1,4 @@
-  # Install Require Packages And Functions:
+# Install Require Packages And Functions:
 
   ```r
     if(!"devtools" %in% installed.packages()) install.packages("devtools")
@@ -19,18 +19,18 @@
 
 
 
-# Check data in general:
+* # Check data in general:
 
-    *
 ```r
 DataFrameEx %>% glimpse()
 ```
-  
-    - Plot data:
 
-    ```r 
+* kkk
+  * Plot data:
+
+```r 
     DataFrameEx %>% ggplot() + geom_line(aes(Date, ColumnName))
-    ```
+```
 
 
 # Repair 'Date' column:
