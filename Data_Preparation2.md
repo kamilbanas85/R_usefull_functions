@@ -17,30 +17,23 @@
     rm(InstallPackagesGIT, ClearDataGIT, DataTranformationGIT, listOfPackages)
   ```
 
-
-
 # Check data in general:
  * Display data:
    ```r
    DataFrameEx %>% glimpse()
    ```
-
-
  * Plot data:
    ```r 
     DataFrameEx %>% ggplot() + geom_line(aes(Date, ColumnName))
    ```
 
-
 # Repair 'Date' column:
-
 - remove NA from the top and bottom data
 - complite missing dates
 - remove dupicated dates
 
 
- ## Check top and bottom values:
-
+ * ## Check top and bottom values:
 ```r
 DataFrameEx %>% head()
 DataFrameEx %>% tail()
