@@ -21,17 +21,16 @@ rm(InstallPackagesGIT, ClearDataGIT, DataTranformationGIT, listOfPackages)
 
 # Check data in general:
 
+    *
 ```r
-    DataFrameEx %>% glimpse()
+DataFrameEx %>% glimpse()
 ```
   
-**Plot data:**
+    - Plot data:
 
-```r
-    
-DataFrameEx %>% ggplot() + geom_line(aes(Date, ColumnName))
-  
-```
+    ```r 
+    DataFrameEx %>% ggplot() + geom_line(aes(Date, ColumnName))
+    ```
 
 
 # Repair 'Date' column:
