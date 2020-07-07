@@ -20,10 +20,10 @@
 
 
 # Check data in general:
-
-```r
-DataFrameEx %>% glimpse()
-```
+ * Display data:
+   ```r
+   DataFrameEx %>% glimpse()
+   ```
 
 
  * Plot data:
