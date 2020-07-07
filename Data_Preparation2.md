@@ -70,7 +70,7 @@
 
 # Repair rest of a data:
 
- * ## fill missing datas
+ * ## Fill missing datas:
       Functions to replace NA:
       * fill() - replace NA with previous or next value. Example:
         ```r
@@ -100,21 +100,15 @@
         ```
       * ## remove NA from the top and bottom data
  
-
- 
- **Functions to remove NA:**
+ * ## Functions to remove NA:**
+      * na.omit() - remove row with NA based on all data or specific column. Example:
+        ```r
+        DataFrameEx <- DataFrameEx %>% 
+                            na.omit()
+        ```
   
-  **na.omit()** - remove row with NA based on all data or specific column. Example:
-
-  ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
-  DataFrameEx <- DataFrameEx %>% 
-                      na.omit()
-  ```
-  
-  **drop_na()** - remove rows with NA in sepecific column. Example:
-  
-  ```{r, results='hide', error=FALSE, warning=FALSE, message=FALSE}
-  
-  DataFrameEx <- DataFrameEx %>% 
-                      drop_na(ColumnName)
-  ```
+      * drop_na() - remove rows with NA in sepecific column. Example:
+        ```r
+        DataFrameEx <- DataFrameEx %>% 
+                            drop_na(ColumnName)
+        ```
