@@ -99,7 +99,8 @@
               na.approx()
         ```
         
- * ## Functions to remove NA:**
+ * ## Remove missing datas. 
+      Functions to remove NA:
       * __na.omit()__ - remove row with NA based on all data or specific column. Example:
         ```r
         DataFrameEx <- DataFrameEx %>% 
