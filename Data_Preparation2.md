@@ -55,20 +55,18 @@
         ```r
         DataFrameEx %>% distinct(Date, .keep_all = TRUE)
         ```
-    :Complite missing dates:
- **Complite 'Date' column - replace 'NA', 'None' etc.:**
- Check missing data in 'Date' column to knwolage:
-  ```r
-  is.na(DataFrameEx$Date) %>% table()  
-  ```
- Fill 'Date' column with sequence of dates:
-  ```r
-  DataFrameEx <- DataFrameEx %>% 
-                    tidyr::complete(Date = seq.Date(min(Date, na.rm = TRUE),
-                                      max(Date, na.rm = TRUE), by = 'day'))
-  ``` 
 
-
+ * ## Complite missing dates in 'Date' column - replace 'NA', 'None' etc.:
+      Check missing data in 'Date' column to knwolage:
+      ```r
+      is.na(DataFrameEx$Date) %>% table()  
+      ```
+      Fill 'Date' column with sequence of dates:
+      ```r
+      DataFrameEx <- DataFrameEx %>% 
+                      tidyr::complete(Date = seq.Date(min(Date, na.rm = TRUE),
+                                              max(Date, na.rm = TRUE), by = 'day'))
+      ``` 
 
 # Repair rest of a data:
 
