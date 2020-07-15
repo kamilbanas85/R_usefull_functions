@@ -8,7 +8,7 @@
     require(xts)
     require(lubridate)
 
-
+############################################################
 ## check what happen when data start or end on 29-02
 
 DataFrameToXTS <- function(DataFrame){
@@ -29,7 +29,7 @@ DataFrameToXTS <- function(DataFrame){
                             order.by=DataFrame[,DateColumnNumber])
 }
 
-
+############################################################
 
 XTStoTSremoveLeapYear <- function(XTSobject){
   
@@ -42,7 +42,26 @@ XTStoTSremoveLeapYear <- function(XTSobject){
   TSobject <- TSstudio::xts_to_ts(XTSobject_withoutLeapDays)
 }
 
+############################################################
 
+XTStoTSremoveLeapYear1d <- function(XTSobject, SetFrequncy = 365){
+  
+  # Only for daily data
+  # Remove 29-02 - leap day
+  XTSobject_withoutLeapDays <-
+    XTSobject[!(lubridate::month(index(XTSobject)) == 2 & 
+                  lubridate::day(index(XTSobject))==29)]
+  
+  TemporalDF = data.frame(Colname = coredata(XTSobject_withoutLeapDays))
+  begin = c(year(index(XTSobject_withoutLeapDays)[1]) ,
+            yday(index(XTSobject_withoutLeapDays)[1]) )
+
+  TSobject  <- ts(TemporalDF$Colname, 
+                  start = begin,
+                  frequency = SetFrequncy)
+}
+
+############################################################
 
 CreateDateSequence <- function(TSobject){
   
@@ -63,7 +82,7 @@ CreateDateSequence <- function(TSobject){
   DateSeqence <- seq.Date(StartDate, EndDate, by = 'day')
 }
 
-
+############################################################
 
 ForecastToDataFrame <- function(FORECASTobject){
   
