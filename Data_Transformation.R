@@ -84,6 +84,21 @@ CreateDateSequence <- function(TSobject){
 
 ############################################################
 
+TStoDataFrame <- function(TSobject){
+  
+  DateSequence <- CreateDateSequence(TSobject)
+  
+  DateSequenceWithoutLeapDays <- 
+    DateSequence[!(lubridate::month(DateSequence) == 2 &
+                   lubridate::day(DateSequence)==29)]
+  
+  DateFrameObject <- cbind(Date = DateSequenceWithoutLeapDays, 
+              as.data.frame(TSobject ))
+  return(DateFrameObject)
+}
+
+############################################################
+
 ForecastToDataFrame <- function(FORECASTobject){
   
   DateBeseSeries <- FORECASTobject$x %>% CreateDateSequence()
