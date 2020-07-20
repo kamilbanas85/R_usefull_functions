@@ -93,7 +93,7 @@ TStoDataFrame <- function(TSobject){
                    lubridate::day(DateSequence)==29)]
   
   DateFrameObject <- cbind(Date = DateSequenceWithoutLeapDays, 
-              as.data.frame(TSobject ))
+                           as.data.frame(TSobject))
   return(DateFrameObject)
 }
 
@@ -101,28 +101,9 @@ TStoDataFrame <- function(TSobject){
 
 ForecastToDataFrame <- function(FORECASTobject){
   
-  DateBeseSeries <- FORECASTobject$x %>% CreateDateSequence()
-  DateFittedSeries <- FORECASTobject$fitted %>% CreateDateSequence() 
-  DatePredictedSeries <- FORECASTobject$mean %>% CreateDateSequence()
-  
-  DateBeseSeriesWithoutLeapDays <- 
-    DateBeseSeries[!(lubridate::month(DateBeseSeries) == 2 & 
-                       lubridate::day(DateBeseSeries)==29)]
-  
-  DateFittedSeriesWithoutLeapDays <- 
-    DateFittedSeries[!(lubridate::month(DateFittedSeries) == 2 & 
-                         lubridate::day(DateFittedSeries)==29)] 
-  
-  DatePredictedSeriesWithoutLeapDays <- 
-    DatePredictedSeries[!(lubridate::month(DatePredictedSeries) == 2 & 
-                            lubridate::day(DatePredictedSeries)==29)]
-    
-  BaseSeries <- cbind(Date = DateBeseSeriesWithoutLeapDays, 
-                      as.data.frame(FORECASTobject$x))
-  Fitted <- cbind(Date = DateFittedSeriesWithoutLeapDays, 
-                  as.data.frame(FORECASTobject$fitted))  
-  Predicted <- cbind(Date = DatePredictedSeriesWithoutLeapDays, 
-                     as.data.frame(FORECASTobject$mean))  
+  BaseSeries <- FORECASTobject$x %>% TStoDataFrame()
+  Fitted <- FORECASTobject$fitted %>% TStoDataFrame()  
+  Predicted <- FORECASTobject$mean %>% TStoDataFrame()  
   
   StartDateMain <- BaseSeries[1,'Date']
   EndDateMain <- Predicted[nrow(Predicted),'Date']
