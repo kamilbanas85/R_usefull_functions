@@ -71,7 +71,7 @@ CreateDateSequence <- function(TSobject){
   EndDate <- paste0(end(TSobject)[1],end(TSobject)[2]) %>% 
     as.Date(format('%Y %j'))
 
-  if (lubridate::leap_year(StartDate) & lubridate::month(EndDate) >= 3 ){
+  if (lubridate::leap_year(StartDate) & lubridate::month(StartDate) >= 3 ){
     StartDate = StartDate + 1
   }
     
